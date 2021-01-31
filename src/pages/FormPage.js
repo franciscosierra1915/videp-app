@@ -1,10 +1,16 @@
 import React from "react";
 import { PersonCircle } from 'react-bootstrap-icons';
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
-const FormPage = ({handlePage}) => {
+const FormPage = ({handleScene}) => {
   return (
-    <div className="container">
+    <motion.div 
+    className="container"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ delay: 1, duration: 1.2}}>
       <div className="form-box">
         <div className="header-form">
           <h4 className="text-primary text-center">
@@ -39,7 +45,7 @@ const FormPage = ({handlePage}) => {
               />
             </div>
             <Link to="/photos">
-            <button type="button" className="btn btn-secondary btn-block" onClick={() => handlePage('photos')}>
+            <button type="button" className="btn btn-secondary btn-block" onClick={() => handleScene('photos')}>
               LOGIN
             </button>
             </Link>
@@ -65,7 +71,7 @@ const FormPage = ({handlePage}) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
